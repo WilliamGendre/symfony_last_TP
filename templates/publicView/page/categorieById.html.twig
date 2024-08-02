@@ -1,0 +1,27 @@
+{% extends 'publicView/base.html.twig' %}
+
+{% block title %}{{ categorie.title }}{% endblock %}
+
+{% block content %}
+
+    <main class="articleById" id="categorieById">
+        <section>
+            <h2 id="titleCategorie">{{ categorie.title }}</h2>
+            {% for article in categorie.articles %}
+                <article>
+                    <h2>{{ article.title }}</h2>
+                    <div><img src="{{ article.image }}" alt="{{ article.title }}"></div>
+                    <p>{{ article.content }}</p>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+
+    <!-- Permet de faire du css en utilisant des éléments de la base de données -->
+    <style>
+        #titleCategorie{
+            background-color: {{ categorie.color }};
+        }
+    </style>
+
+{% endblock %}

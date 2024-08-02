@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/******************** Header ********************/
+
+header{
+    background-color: #656565;
+    text-align: center;
+    padding: 3%;
+}
+
+/******************** Error404 ********************/
+
+#error404{
+    background-image: url("https://s.yimg.com/ny/api/res/1.2/nJgYPoysMfFCRJMrglLAuQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTI3OQ--/https://s.yimg.com/uu/api/res/1.2/TCoqLV1bMI_wPEK68BgDSg--~B/aD0yNzU7dz02MzA7YXBwaWQ9eXRhY2h5b24-/http://l.yimg.com/os/607/2013/03/18/southparkstudios2-jpg_175027.jpg");
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/******************** Delete success ********************/
+
+.flashSuccess{
+    padding: 2%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/******************** Main ********************/
+
+.adminArticles{
+    padding: 2%;
+}
+
+#adminImageArticles{
+    width: 100%;
+}
+
+th, td{
+    text-align: center;
+    width: 14%;
+}
+
+th{
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+/******************** Footer ********************/
+
+footer{
+    background-color: #656565;
+    text-align: center;
+    padding: 3%;
+}

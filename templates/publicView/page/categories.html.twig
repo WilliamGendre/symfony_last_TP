@@ -1,0 +1,18 @@
+{% extends 'publicView/base.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block content %}
+
+    <main class="pageArticles" id="pageCategories">
+        <section>
+            {% for categorie in categories %}
+                <article>
+                    <!-- style permet de faire un css qui avec des élément de la bdd -->
+                    <h2 style="background-color: {{ categorie.color }}" id="titleCategorie"><a href="{{ path('categorieById', {id: categorie.id}) }}">{{ categorie.title }}</a></h2>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+
+{% endblock %}

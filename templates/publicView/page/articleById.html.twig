@@ -1,0 +1,18 @@
+{% extends 'publicView/base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+
+    <main class="articleById">
+        <section>
+            <article>
+                <div><img src="{{ article.image }}" alt="{{ article.title }}"></div>
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.content }}</p>
+            </article>
+            <p id="dateCreate">{{ article.createdAt |date('d/m/Y') }}</p>
+        </section>
+    </main>
+
+{% endblock %}
