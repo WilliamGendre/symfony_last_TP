@@ -13,6 +13,32 @@ header{
     padding: 3%;
 }
 
+header nav{
+    padding-top: 2%;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+header nav ul li{
+    background-color: black;
+    width: 150px;
+    padding: 1%;
+    border-radius: 20px;
+}
+
+header nav ul li a{
+    color: white;
+}
+
+header nav ul li a:hover{
+    color: red;
+}
+
 /******************** Error404 ********************/
 
 #error404{

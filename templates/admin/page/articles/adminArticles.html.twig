@@ -7,10 +7,6 @@
     <main class="adminArticles">
         <section>
 
-            {% for message in app.flashes('gagner') %}
-                <h2 class="flashSuccess">{{ message }}</h2>
-            {% endfor %}
-
             <table width="100%" border="1">
                 <thead>
                     <th>Titre</th>
@@ -35,7 +31,7 @@
                                     <p>NON</p>
                                 {% endif %}
                             </td>
-                            <td><a href="">Modifier</a></td>
+                            <td><a href="{{ path('admin_article_update', {id: article.id}) }}">Modifier</a></td>
                             <td><a href="{{ path('admin_article_delete', {id: article.id}) }}">Supprimer</a></td>
                         </tr>
                 {% endfor %}

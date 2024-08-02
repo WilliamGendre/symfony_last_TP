@@ -9,6 +9,17 @@
 <body>
 <header>
     <h1>Ceci est le header Admin</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="{{ path('admin_articles') }}">Articles</a></li>
+            <li><a href="{{ path('admin_article_insert') }}">Ajoutez un article</a></li>
+        </ul>
+    </nav>
+
+    {% for message in app.flashes('success') %}
+        <h2 class="flashSuccess">{{ message }}</h2>
+    {% endfor %}
 </header>
 {% block content %}{% endblock %}
 <footer>
