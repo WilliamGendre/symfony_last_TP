@@ -1,0 +1,36 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block content %}
+
+    <main class="adminArticles">
+        <section>
+
+            <table width="100%" border="1">
+                <thead>
+                <th>Titre</th>
+                <th>Couleur</th>
+                <th>date de création</th>
+                <th>date de modification</th>
+                <th>Modif?</th>
+                <th>Suppression?</th>
+                </thead>
+                <tbody>
+                {% for categorie in categories %}
+                    <tr>
+                        <td><h2>{{ categorie.title }}</h2></td>
+                        <td>{{ categorie.color }}</td>
+                        <td><p>{{ categorie.createdAt | date('d/m/Y') }}</p></td>
+                        <td><p>{{ categorie.updatedAt | date('d/m/Y') }}</p></td>
+
+                        <td><a href="{{ path('admin_categorie_update', {id: categorie.id}) }}">Modifier</a></td>
+                        <td><a href="{{ path('admin_categorie_delete', {id: categorie.id}) }}">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+{% endblock %}

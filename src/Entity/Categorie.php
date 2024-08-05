@@ -34,9 +34,12 @@ class Categorie
     #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'categorie')]
     private Collection $articles;
 
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->createdAt = new \DateTime('NOW');
+        $this->updatedAt = new \DateTime('NOW');
     }
 
     public function getId(): ?int

@@ -1,0 +1,29 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}Nouvelle article{% endblock %}
+
+{% block content %}
+
+    <h2>Nouvelle catégorie</h2>
+
+    <section>
+
+        <form method="post">
+
+            <label for="">
+                <p>Catégorie</p>
+                <input type="text" name="title" value="{{ categorie.title }}">
+            </label>
+
+            <label for="">
+                <p>Couleur</p>
+                <input type="color" name="color" value="{{ categorie.color }}">
+            </label>
+
+            <input type="submit" name="modifier">
+
+        </form>
+
+    </section>
+
+{% endblock %}
