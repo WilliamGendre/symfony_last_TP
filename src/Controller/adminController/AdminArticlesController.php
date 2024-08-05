@@ -71,10 +71,13 @@ class AdminArticlesController extends AbstractController{
         $articleUpdateForm->handleRequest($request);
 
         if($articleUpdateForm->isSubmitted() && $articleUpdateForm->isValid()){
+            $article->setUpdatedAt(new \DateTime('now'));
             $entityManager->persist($article);
             $entityManager->flush();
 
             $this->addFlash('success', 'L\'article à bien été modifié');
+
+            return $this->redirectToRoute('admin_articles');
         }
 
         return $this->render('admin/page/articles/updateArticle.html.twig', ['articleUpdateForm' => $articleUpdateForm->createView()]);

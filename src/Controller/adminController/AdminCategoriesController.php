@@ -83,6 +83,7 @@ class AdminCategoriesController extends AbstractController{
 
             $categorie->setTitle($title);
             $categorie->setColor($color);
+            $categorie->setUpdatedAt(new \DateTime('now'));
 
             $entityManager->persist($categorie);
             $entityManager->flush();
