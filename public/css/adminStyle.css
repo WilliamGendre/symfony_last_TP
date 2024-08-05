@@ -78,6 +78,19 @@ th{
     font-size: 20px;
 }
 
+/******************** Catégorie ********************/
+
+.mainFormeulaireController{
+    padding: 5%;
+}
+
+.formulaireCategorie{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /******************** Footer ********************/
 
 footer{
