@@ -18,6 +18,13 @@ class AdminUsersController extends AbstractController
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
+            // Empêche de créer un user sans email
+
+            if(!$email){
+                $this->addFlash('success', 'Il manque l\'adresse mail');
+                return $this->render('admin/page/users/insertUser.html.twig');
+            }
+
             // Empêche de créer un user sans mot de passe
 
             if(!$password){
