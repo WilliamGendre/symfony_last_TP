@@ -36,6 +36,9 @@ class Article
     private ?bool $isPublished = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
+    // Donne une valeure null à la catégorie des articles si on la supprime,
+    // à condition que l'article peut avoir une valeur de catégorie null
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?Categorie $categorie = null;
 
     public function __construct()

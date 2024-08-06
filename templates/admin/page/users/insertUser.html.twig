@@ -1,0 +1,33 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}Nouvelle article{% endblock %}
+
+{% block content %}
+
+    <main class="mainFormeulaireController">
+
+        <section class="formulaireCategorie">
+
+            <h2>Nouvelle catégorie</h2>
+
+            <form method="post">
+
+                <label for="">
+                    <p>Email</p>
+                    <input type="email" name="email">
+                </label>
+
+                <label for="">
+                    <p>Mot de passe</p>
+                    <input type="password" name="password">
+                </label>
+
+                <input type="submit" name="valider" id="formSubmit">
+
+            </form>
+
+        </section>
+
+    </main>
+
+{% endblock %}

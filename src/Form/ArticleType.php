@@ -23,6 +23,9 @@ class ArticleType extends AbstractType
             ->add('categorie', EntityType::class, [
                 'class' => Categorie::class,
                 'choice_label' => 'title',
+                // Permet de ne pas être obliger de choisir une catégorie
+                'placeholder' => 'Pas de catégorie',
+                'required' => false
             ])
             ->add('valider', SubmitType::class)
         ;

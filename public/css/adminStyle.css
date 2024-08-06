@@ -91,6 +91,34 @@ th{
     align-items: center;
 }
 
+.formulaireCategorie h2{
+    padding: 2%;
+}
+
+.formulaireCategorie form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#formSubmit{
+    margin: 5% 0;
+    padding: 1% 5%;
+}
+
+.formulaireCategorie form label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 0;
+    margin: 2% 0;
+}
+
+.formulaireCategorie form label p{
+    width: 100px;
+}
+
 /******************** Footer ********************/
 
 footer{
