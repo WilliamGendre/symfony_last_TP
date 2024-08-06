@@ -18,9 +18,20 @@ class AdminUsersController extends AbstractController
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
+            // Empêche de créer un user sans mot de passe
+
+            if(!$password){
+                $this->addFlash('success', 'Il manque le mot de passe');
+                return $this->render('admin/page/users/insertUser.html.twig');
+            }
+
+            // Créer un user
+
             $user = new User();
 
             try {
+
+                // Permet de hacher le mot de passe pour plus de sécurité
 
                 $hashedPassword = $passwordHasher->hashPassword($user, $password);
 
