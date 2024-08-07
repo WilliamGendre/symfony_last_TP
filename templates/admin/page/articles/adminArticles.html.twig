@@ -35,7 +35,11 @@
                                 {% endif %}
                             </td>
                             <td><a href="{{ path('admin_article_update', {id: article.id}) }}">Modifier</a></td>
-                            <td><a href="{{ path('admin_article_delete', {id: article.id}) }}">Supprimer</a></td>
+                            <td>
+                                <p data-id="{{ article.id }}" class="falseDelete">Supprimer</p>
+                                <p class="trueDelete" id="deleteArticle{{ article.id }}">êtes-vous sûr de vouloir supprimer l'article?<br><br><a href="{{ path('admin_article_delete', {id: article.id}) }}">Oui</a>
+                                    <a href="{{ path('admin_articles') }}">Non</a></p>
+                            </td>
                         </tr>
                 {% endfor %}
                 </tbody>

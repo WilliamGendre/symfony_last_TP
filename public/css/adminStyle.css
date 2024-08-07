@@ -119,6 +119,37 @@ th{
     width: 100px;
 }
 
+/******************** Delete ********************/
+
+.adminArticles{
+    position: relative;
+}
+
+.trueDelete{
+    display: none;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    padding: 8%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.trueDelete a{
+    padding: 5% 10%;
+}
+
+.trueDelete a:first-of-type{
+    background-color: red;
+    border-radius: 20px;
+}
+
+.trueDelete a:last-of-type{
+    background-color: blue;
+    border-radius: 20px;
+}
+
 /******************** Footer ********************/
 
 footer{
