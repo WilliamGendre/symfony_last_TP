@@ -47,7 +47,9 @@ class AdminUsersController extends AbstractController
                 $user->setPassword($hashedPassword);
 
                 $entityManager->persist($user);
+
                 $entityManager->flush();
+
 
                 $this->addFlash('success', 'L\'admin à bien été créé');
 

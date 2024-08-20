@@ -6,10 +6,13 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminArticlesController extends AbstractController{
 
@@ -42,7 +45,7 @@ class AdminArticlesController extends AbstractController{
     }
 
     #[Route('/admin/article/insert', name: 'admin_article_insert')]
-    public function insertArticle(EntityManagerInterface $entityManager, Request $request)
+    public function insertArticle(EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger, ParameterBagInterface $params)
     {
         $article = new Article();
 
@@ -51,6 +54,23 @@ class AdminArticlesController extends AbstractController{
         $articleCreatForm->handleRequest($request);
 
         if($articleCreatForm->isSubmitted() && $articleCreatForm->isValid()){
+
+            $imageFile = $articleCreatForm->get('image')->getData();
+
+            if ($imageFile){
+                $originalFileName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFileName);
+                $newFileName = $safeFileName.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $rootPath = $params->get("kernel.project_dir");
+                    $imageFile->move($rootPath.'/public/uploadArticles', $newFileName);
+                } catch (FileException $e){
+                    dd($e->getMessage());
+                }
+                $article->setImage($newFileName);
+            }
+
             $entityManager->persist($article);
             $entityManager->flush();
 

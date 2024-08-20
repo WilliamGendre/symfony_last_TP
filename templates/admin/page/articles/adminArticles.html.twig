@@ -22,7 +22,7 @@
                 {% for article in articles %}
                         <tr>
                             <td><h2>{{ article.title }}</h2></td>
-                            <td><div><img src="{{ article.image }}" alt="{{ article.title }}" id="adminImageArticles"></div></td>
+                            <td><div><img src="{{ asset('uploadArticles/'~ article.image) }}" alt="{{ article.title }}" id="adminImageArticles"></div></td>
                             <!-- affiche la catégorie si elle existe, sinon affiche "sans catégorie" -->
                             <td>{{ article.categorie ? article.categorie.title : "sans catégorie" }}</td>
                             <td><p>{{ article.createdAt | date('d/m/Y') }}</p></td>
